@@ -2,15 +2,15 @@
     #include<stdio.h> 
     #include<stdlib.h>
     #include<string.h>
-    #include<conio.h>
+    //#include<conio.h>
 
     //----------------------STRUCT---------------------------------------------
     typedef struct arv{
-        int info, fb;//informação do nó e fator de Balanceamento respectivamente
+        int info, fb;//informaÃ§Ã£o do nÃ³ e fator de Balanceamento respectivamente
         struct arv* esq;
         struct arv* dir;
     }AVL;
-    //------------------PROTÓTIPOS---------------------------------------------
+    //------------------PROTÃ“TIPOS---------------------------------------------
     AVL* insere();
     static int max2();
     int arv_altura();
@@ -30,15 +30,15 @@
     void apenas_um();
     AVL* balanceamento();
     
-    //----------------------------------FUNÇÕES-------------------------------------
-    AVL *insere (AVL *arvore, int num)//função que realiza iserção na AVL
+    //----------------------------------FUNÃ‡Ã•ES-------------------------------------
+    AVL *insere (AVL *arvore, int num)//funÃ§Ã£o que realiza iserÃ§Ã£o na AVL
     { 
       if(arvore == NULL)
       {         
-      arvore = (AVL*) malloc (sizeof(AVL));//alocação dinâmica
+      arvore = (AVL*) malloc (sizeof(AVL));//alocaÃ§Ã£o dinÃ¢mica
       arvore->dir = NULL;
       arvore->esq = NULL;
-      arvore->info = num;//informação do Nó
+      arvore->info = num;//informaÃ§Ã£o do NÃ³
       arvore->fb = 0;//fator de balanceamento
       printf("\tnumero inserido com sucesso!!!\n\n");
       return arvore; 
@@ -70,12 +70,12 @@
     return (a > b)? a:b;//retona apenas um dos valores que for maior
     }
     
-    int arv_altura(AVL* arvore)//função que retorna o fator de balanceamento
+    int arv_altura(AVL* arvore)//funÃ§Ã£o que retorna o fator de balanceamento
     {
     if(arvore == NULL)
     return -1;
     else 
-    return 1 + max2(arv_altura(arvore->dir), arv_altura(arvore->esq));//realiza a soma de cada nó
+    return 1 + max2(arv_altura(arvore->dir), arv_altura(arvore->esq));//realiza a soma de cada nÃ³
     }
     
     AVL* rodarEsq(AVL *arvore)
@@ -181,11 +181,11 @@
                }
     }//fim else
     
-    arvore = balanceamento(arvore);//atualiza o fator de balanceamento de toda árvore
+    arvore = balanceamento(arvore);//atualiza o fator de balanceamento de toda Ã¡rvore
     return arvore;    
     }//remover
 
-    AVL* arv_apagartoda(AVL* arvore)//elimina toda árvore
+    AVL* arv_apagartoda(AVL* arvore)//elimina toda Ã¡rvore
     {
      if(arvore != NULL)
      {
@@ -282,7 +282,7 @@
                    system("cls");
                    printf("informe o numero para impressao\n");
                    scanf(" %d", &num);
-                   busca(arvore, num);//busca o numero na AVL para impressão
+                   busca(arvore, num);//busca o numero na AVL para impressÃ£o
                    printf("\n\n\tdeseja imprimir mais algum numero S/N?\n\t%c",16);
                    scanf("  %c",&a);
                    }while(a == 'S' || a == 's');
@@ -290,8 +290,8 @@
           case 2: system("cls");
                   do{
                   system("cls");              
-                  ordem(arvore);//escolhe a ordem para impressão
-                  printf("deseja fazer mais alguma impressão?\n S/N =>");
+                  ordem(arvore);//escolhe a ordem para impressÃ£o
+                  printf("deseja fazer mais alguma impressÃ£o?\n S/N =>");
                   scanf(" %c", &b);
                   }while (b == 'S' || b == 's');
                   break;
@@ -299,7 +299,7 @@
           }
     }//fim void imprime
 
-    void ordem(AVL* arvore)//escolhe a ordem de Impressão da AVL
+    void ordem(AVL* arvore)//escolhe a ordem de ImpressÃ£o da AVL
     {
       int op;
       printf("\tem qual ordem deseja imprimir a arvore??\n\n");
@@ -326,10 +326,10 @@
           }// fim switch
     }//fim  void ordem
 
-    void busca (AVL* arvore, int num)//realiza a busca de apenas uma informção na árvore
+    void busca (AVL* arvore, int num)//realiza a busca de apenas uma informÃ§Ã£o na Ã¡rvore
     {        
      if (arvore == NULL) 
-     printf("numero não existe na árvore\n");
+     printf("numero nÃ£o existe na Ã¡rvore\n");
      else if (num > arvore->info) 
      busca (arvore->dir, num);
      else if ( num < arvore->info) 
@@ -346,7 +346,7 @@
       while (op!=9)
        {
          system("cls");
-         menu(); //cria o MENU de opções
+         menu(); //cria o MENU de opÃ§Ãµes
          printf("%c",16);
          scanf("%d", &op);
          switch(op)
@@ -354,7 +354,7 @@
              case 1: system("cls");
                      printf("\n\t%c   informe o numero: ", 1);
                      //scanf("%d", &num); printf("\n\n");
-                     //arvore = insere(arvore, num); //inserção na AVL
+                     //arvore = insere(arvore, num); //inserÃ§Ã£o na AVL
                      arvore = insere(arvore, 1);
                      /*arvore = insere(arvore, 2);
                      arvore = insere(arvore, 3);
@@ -374,7 +374,7 @@
                      break;
                      }else
                      system("cls");
-                     imprime(arvore);//imprime a árvore AVL
+                     imprime(arvore);//imprime a Ã¡rvore AVL
                      //system("pause");
                      break;                
              case 3: system("cls");
@@ -385,7 +385,7 @@
                      }else
                      printf("informe o numero para remover: ");
                      scanf("%d", &num);
-                     arvore = arv_remove(arvore, num);//remove as informções da AVL
+                     arvore = arv_remove(arvore, num);//remove as informÃ§Ãµes da AVL
                      printf("numero removido \n");
                      system("pause");
                      break;
@@ -395,7 +395,7 @@
                      system("pause");
                      break;
                      }else
-                     if(arvore != NULL)//eliminar toda AVL da memória
+                     if(arvore != NULL)//eliminar toda AVL da memÃ³ria
                      printf(" deseja eliminar toda a arvore???\n S/N =>");
                      scanf(" %c",&c);
                      fflush(stdin);
